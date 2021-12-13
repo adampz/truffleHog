@@ -179,39 +179,39 @@ def clone_git_repo(git_url):
     return project_path
 
 def print_results(printJson, issue):
-    commit_time = issue['date']
+    #commit_time = issue['date']
     branch_name = issue['branch']
-    prev_commit = issue['commit']
-    printableDiff = issue['printDiff']
-    commitHash = issue['commitHash']
+    #prev_commit = issue['commit']
+    #printableDiff = issue['printDiff']
+    #commitHash = issue['commitHash']
     reason = issue['reason']
     path = issue['path']
 
     if printJson:
         print(json.dumps(issue, sort_keys=True))
     else:
-        print("~~~~~~~~~~~~~~~~~~~~~")
+        #print("~~~~~~~~~~~~~~~~~~~~~")
         reason = "{}Reason: {}{}".format(bcolors.OKGREEN, reason, bcolors.ENDC)
         print(reason)
         dateStr = "{}Date: {}{}".format(bcolors.OKGREEN, commit_time, bcolors.ENDC)
-        print(dateStr)
+        #print(dateStr)
         hashStr = "{}Hash: {}{}".format(bcolors.OKGREEN, commitHash, bcolors.ENDC)
-        print(hashStr)
+        #print(hashStr)
         filePath = "{}Filepath: {}{}".format(bcolors.OKGREEN, path, bcolors.ENDC)
         print(filePath)
 
         if sys.version_info >= (3, 0):
             branchStr = "{}Branch: {}{}".format(bcolors.OKGREEN, branch_name, bcolors.ENDC)
-            print(branchStr)
+            #print(branchStr)
             commitStr = "{}Commit: {}{}".format(bcolors.OKGREEN, prev_commit, bcolors.ENDC)
             print(commitStr)
-            print(printableDiff)
+            #print(printableDiff)
         else:
             branchStr = "{}Branch: {}{}".format(bcolors.OKGREEN, branch_name.encode('utf-8'), bcolors.ENDC)
-            print(branchStr)
+            #print(branchStr)
             commitStr = "{}Commit: {}{}".format(bcolors.OKGREEN, prev_commit.encode('utf-8'), bcolors.ENDC)
             print(commitStr)
-            print(printableDiff.encode('utf-8'))
+            #print(printableDiff.encode('utf-8'))
         print("~~~~~~~~~~~~~~~~~~~~~")
 
 def find_entropy(printableDiff, commit_time, branch_name, prev_commit, blob, commitHash):
